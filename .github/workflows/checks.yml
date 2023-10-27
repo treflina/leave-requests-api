@@ -18,4 +18,4 @@ jobs:
       - name: Test
         run: docker compose -f local.yml run --rm api pytest -p no:warnings --cov=. -v
       - name: Lint
-        run: docker compose -f local.yml exec api flake8 . --ignore=F401
+        run: docker compose -f local.yml run --rm api flake8 . --ignore=F401

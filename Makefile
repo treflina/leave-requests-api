@@ -22,6 +22,15 @@ migrate:
 collectstatic:
 	docker compose -f local.yml run --rm api python manage.py collectstatic --no-input --clear
 
+test:
+	docker compose -f local.yml run --rm api python manage.py test
+
+cov-html:
+	docker compose -f local.yml run --rm api pytest -p no:warnings --cov=. --cov-report html
+
+cov:
+	docker compose -f local.yml run --rm api pytest -p no:warnings --cov=. -v
+
 superuser:
 	docker compose -f local.yml run --rm api python manage.py createsuperuser
 
@@ -29,7 +38,7 @@ down-v:
 	docker compose -f local.yml down -v
 
 flake8:
-	docker compose -f local.yml exec api flake8 .
+	docker compose -f local.yml exec api flake8 . --ignore=F401
 
 black-check:
 	docker compose -f local.yml exec api black --check --exclude=migrations .

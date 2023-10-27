@@ -18,7 +18,7 @@ services:
             - postgres
             - mailhog
         networks:
-            - authors-api
+            - empportal-api
 
     postgres:
         build:
@@ -30,7 +30,7 @@ services:
         env_file:
             - ./.envs/.local/.postgres
         networks:
-            - authors-api
+            - empportal-api
 
     mailhog:
         image: mailhog/mailhog:v1.0.0
@@ -38,10 +38,10 @@ services:
         ports:
             - "8025:8025"
         networks:
-            - authors-api
+            - empportal-api
 
 networks:
-    authors-api:
+    empportal-api:
         driver: bridge
 
 volumes:

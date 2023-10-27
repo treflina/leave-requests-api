@@ -70,20 +70,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "empportal.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
-    }
+    "default": env.db("DATABASE_URL")
 }
-
-# DATABASES = {
-#     "default": env.db("DATABASE_URL")
-# }
 
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",
@@ -112,9 +101,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+AUTH_USER_MODEL = "users.User"
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
+
 
 LANGUAGE_CODE = "pl"
 
@@ -126,7 +116,7 @@ USE_TZ = True
 
 SITE_ID = 1
 
-ADMIN_URL = "hradmin"
+ADMIN_URL = "hradmin/"
 
 
 # Static files (CSS, JavaScript, Images)

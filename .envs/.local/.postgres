@@ -3,4 +3,4 @@ POSTGRES_PORT=5432
 POSTGRES_DB=localdb
 POSTGRES_USER=dbuser
 POSTGRES_PASSWORD=changeme
-# DATABASE_URL=postgres://dbuser:changeme@postgres:5432/localdb
+DATABASE_URL=postgres://dbuser:changeme@postgres:5432/localdb

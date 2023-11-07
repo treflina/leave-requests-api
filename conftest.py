@@ -1,9 +1,21 @@
 import pytest
 from pytest_factoryboy import register
 
+from applications.profiles.tests.factories import (
+    DepartmentFactory,
+    EmployeeProfileFactory,
+    PositionFactory,
+    EmployeePositionFactory,
+    WorkingTimeFactory
+)
 from applications.users.tests.factories import UserFactory
 
+register(EmployeeProfileFactory)
 register(UserFactory)
+register(DepartmentFactory)
+register(PositionFactory)
+register(EmployeePositionFactory)
+register(WorkingTimeFactory)
 
 
 @pytest.fixture

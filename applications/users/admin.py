@@ -1,6 +1,6 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
 
 from .forms import UserChangeForm, UserCreationForm
@@ -24,6 +24,8 @@ class UserAdmin(BaseUserAdmin):
     list_display_links = ["last_name", "first_name", "is_active"]
 
     list_filter = ["is_active", "is_staff"]
+
+    readonly_fields = ["last_login"]
 
     fieldsets = (
         (_("Login Credentials"), {"fields": ("username", "password")}),

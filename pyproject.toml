@@ -19,5 +19,5 @@ extend-exclude = '''
 profile = "black"
 
 [tool.flake8]
-ignore = "E203, E501, W503"
+ignore = ["E203, E501, W503, F401"]
 max-line-length = 120

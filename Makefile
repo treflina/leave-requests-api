@@ -38,7 +38,7 @@ down-v:
 	docker compose -f local.yml down -v
 
 flake8:
-	docker compose -f local.yml exec api flake8 . --ignore=F401
+	docker compose -f local.yml exec api flake8 .
 
 black-check:
 	docker compose -f local.yml exec api black --check --exclude=migrations .

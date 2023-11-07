@@ -1,7 +1,6 @@
 import pytest
-
-from django.db import IntegrityError
 from django.contrib.auth import get_user_model
+from django.db import IntegrityError
 
 User = get_user_model()
 
@@ -66,8 +65,19 @@ def test_delete_user(normal_user):
 
 
 def test_user_str(normal_user):
-    assert (str(normal_user) == f"{normal_user.first_name.title()} \
-{normal_user.last_name.title()} {normal_user.additional_identifier}")
+    assert (
+        str(normal_user)
+        == f"{normal_user.first_name.title()} \
+{normal_user.last_name.title()} {normal_user.additional_identifier}"
+    )
+
+
+def test_user_str_with_no_additional_identifier(user_factory):
+    normal_user = user_factory(additional_identifier=None)
+    assert (
+        str(normal_user)
+        == f"{normal_user.first_name.title()} {normal_user.last_name.title()}"
+    )
 
 
 def test_create_user_with_no_username(user_factory):
